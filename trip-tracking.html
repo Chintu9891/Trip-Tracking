@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>Trip Tracking</h2>
+  <div class="input-group">
+    <input [(ngModel)]="startPoint" placeholder="Start Point" />
+    <input [(ngModel)]="endPoint" placeholder="End Point" />
+    <button (click)="addTrip()">Add Trip</button>
+  </div>
+  <svg [attr.width]="svgWidth" [attr.height]="svgHeight">
+    <ng-container *ngFor="let trip of trips; let i = index">
+      <g>
+        <!-- Text labels -->
+        <text [attr.x]="trip.x1" [attr.y]="trip.y - 10" font-size="14">
+          {{ trip.start }}
+        </text>
+        <text [attr.x]="trip.x2" [attr.y]="trip.y - 10" font-size="14">
+          {{ trip.end }}
+        </text>
+        <!-- Line -->
+        <line
+          [attr.x1]="trip.x1"
+          [attr.y1]="trip.y"
+          [attr.x2]="trip.x2"
+          [attr.y2]="trip.y"
+          [attr.stroke]="trip.level === 1 ? 'black' : 'gray'"
+          [attr.stroke-dasharray]="trip.level === 2 ? '5,5' : '0'"
+          stroke-width="2"
+          marker-end="url(#arrow)"
+        />
+      </g>
+    </ng-container>
+    <!-- Arrow Definition -->
+    <defs>
+      <marker
+        id="arrow"
+        markerWidth="10"
+        markerHeight="10"
+        refX="10"
+        refY="3"
+        orient="auto"
+        markerUnits="strokeWidth"
+      >
+        <path d="M0,0 L0,6 L9,3 z" fill="black" />
+      </marker>
+    </defs>
+  </svg>
+</div>
