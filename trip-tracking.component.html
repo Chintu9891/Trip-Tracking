@@ -24,8 +24,7 @@
           [attr.stroke]="trip.level === 1 ? 'black' : 'gray'"
           [attr.stroke-dasharray]="trip.level === 2 ? '5,5' : '0'"
           stroke-width="2"
-          marker-end="url(#arrow)"
-        />
+          marker-end="url(#arrow)"/>
       </g>
     </ng-container>
     <!-- Arrow Definition -->
@@ -37,8 +36,7 @@
         refX="10"
         refY="3"
         orient="auto"
-        markerUnits="strokeWidth"
-      >
+        markerUnits="strokeWidth">
         <path d="M0,0 L0,6 L9,3 z" fill="black" />
       </marker>
     </defs>
