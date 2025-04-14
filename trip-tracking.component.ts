@@ -5,7 +5,7 @@ import { Component} from '@angular/core';
   templateUrl: './trip-tracking.component.html',
   styleUrls: ['./trip-tracking.component.css'],
 })
-export class AppComponent {
+export class TripTrackingComponent {
   startPoint: string = '';
   endPoint: string = '';
   trips: any[] = [];
